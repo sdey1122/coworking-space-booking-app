@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Form } from "antd";
+import { Form, message } from "antd";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function Register() {
   const [showPassword, setShowPassword] = useState(false);
@@ -14,8 +15,17 @@ function Register() {
     setShowConfirmPassword(!showConfirmPassword);
   };
 
-  const handleSubmit = (values) => {
-    console.log("Received values of form: ", values);
+  const handleSubmit = async (values) => {
+    try {
+      const response = await axios.post("/api/users/register", values);
+      if (response.data.success) {
+        message.success(response.data.message);
+      } else {
+        message.error(response.data.message);
+      }
+    } catch (error) {
+      message.error(error.response.message);
+    }
   };
 
   return (
