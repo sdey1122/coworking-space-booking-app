@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form } from "antd";
+import { Link } from "react-router-dom";
 
 function Register() {
   const [showPassword, setShowPassword] = useState(false);
@@ -13,18 +14,26 @@ function Register() {
     setShowConfirmPassword(!showConfirmPassword);
   };
 
+  const handleSubmit = (values) => {
+    console.log("Received values of form: ", values);
+  };
+
   return (
     <div className="register-container">
       <div className="register-card">
         <h2 className="register-heading">Register</h2>
-        <Form layout="vertical">
-          <Form.Item label="Name">
+        <Form layout="vertical" onFinish={handleSubmit}>
+          <Form.Item label="Name" name="name" placeholder="Enter your name">
             <input type="text" />
           </Form.Item>
-          <Form.Item label="Email">
+          <Form.Item label="Email" name="email" placeholder="Enter your email">
             <input type="email" />
           </Form.Item>
-          <Form.Item label="Password">
+          <Form.Item
+            label="Password"
+            name="password"
+            placeholder="Enter your password"
+          >
             <div className="password-container">
               <input type={showPassword ? "text" : "password"} />
               <button
@@ -36,7 +45,11 @@ function Register() {
               </button>
             </div>
           </Form.Item>
-          <Form.Item label="Confirm Password">
+          <Form.Item
+            label="Confirm Password"
+            name="confirmPassword"
+            placeholder="Confirm your password"
+          >
             <div className="password-container">
               <input type={showConfirmPassword ? "text" : "password"} />
               <button
@@ -48,6 +61,13 @@ function Register() {
               </button>
             </div>
           </Form.Item>
+          <button className="primary-btn" type="submit">
+            Register
+          </button>
+          <p style={{ textAlign: "center" }}>
+            <br />
+            Already have an account? <Link to="/login">Login</Link>
+          </p>
         </Form>
       </div>
     </div>
