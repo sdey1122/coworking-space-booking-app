@@ -80,11 +80,13 @@ input[type="password"] {
   background-color: #007bff;
   color: white;
   border: none;
-  padding: 0.5rem;
+  width: 100%;
+  padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .primary-btn:hover {
@@ -95,10 +97,13 @@ input[type="password"] {
   background-color: #6c757d;
   color: white;
   border: none;
+  width: 100%;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .secondery-btn:hover {

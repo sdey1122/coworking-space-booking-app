@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const { validationResult } = require("express-validator");
 const User = require("../models/usersModel");
 const { userValidationRules } = require("../helpers/usersValidation");
+const jwt = require("jsonwebtoken");
 
 // Register
 router.post("/register", userValidationRules(), async (req, res) => {
@@ -34,6 +35,50 @@ router.post("/register", userValidationRules(), async (req, res) => {
   } catch (err) {
     res.status(500).json({
       message: err.message,
+      success: false,
+      data: null,
+    });
+  }
+});
+
+// Login
+
+router.post("/login", async (req, res) => {
+  try {
+    const userExists = await User.findOne({ email: req.body.email });
+    if (!userExists) {
+      return res.send({
+        message: "User does not exists",
+        success: false,
+        data: null,
+      });
+    }
+    const passwordMatch = await bcrypt.compare(
+      req.body.password,
+      userExists.password
+    );
+    if (!passwordMatch) {
+      return res.send({
+        message: "Invalid email / password",
+        success: false,
+        data: null,
+      });
+    }
+    const token = jwt.sign(
+      { userId: userExists._id },
+      "process.env.JWT_SECRET",
+      {
+        expiresIn: "1d",
+      }
+    );
+    res.send({
+      message: "User logged in successfully",
+      success: true,
+      data: token,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
       success: false,
       data: null,
     });
