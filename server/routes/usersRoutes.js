@@ -4,6 +4,7 @@ const { validationResult } = require("express-validator");
 const User = require("../models/usersModel");
 const { userValidationRules } = require("../helpers/usersValidation");
 const jwt = require("jsonwebtoken");
+const authMiddleware = require("../middlewares/authMiddleware");
 
 // Register
 router.post("/register", userValidationRules(), async (req, res) => {
@@ -42,7 +43,6 @@ router.post("/register", userValidationRules(), async (req, res) => {
 });
 
 // Login
-
 router.post("/login", async (req, res) => {
   try {
     const userExists = await User.findOne({ email: req.body.email });
@@ -64,13 +64,9 @@ router.post("/login", async (req, res) => {
         data: null,
       });
     }
-    const token = jwt.sign(
-      { userId: userExists._id },
-      "process.env.JWT_SECRET",
-      {
-        expiresIn: "1d",
-      }
-    );
+    const token = jwt.sign({ userId: userExists._id }, process.env.JWT_SECRET, {
+      expiresIn: "1d",
+    });
     res.send({
       message: "User logged in successfully",
       success: true,
@@ -78,6 +74,24 @@ router.post("/login", async (req, res) => {
     });
   } catch (error) {
     res.status(500).json({
+      message: error.message,
+      success: false,
+      data: null,
+    });
+  }
+});
+
+// Get user by ID
+router.post("/get-user-by-id", authMiddleware, async (req, res) => {
+  try {
+    const user = await User.findById(req.body.userId);
+    res.send({
+      message: "User fetched successfully",
+      success: true,
+      data: user,
+    });
+  } catch (error) {
+    res.send({
       message: error.message,
       success: false,
       data: null,
