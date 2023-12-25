@@ -6,7 +6,7 @@ Welcome to the CoWorkspace Space Buying App, an innovative solution designed for
 ## Key Features
 - **User Authentication and Authorization**: Robust system using JWT and bcryptjs for secure access.
 - **Secure Payment Processing**: Integrated with Stripe for reliable and safe transactions.
-- **Interactive UI**: Developed with React and Material-UI for an engaging user interface.
+- **Interactive UI**: Developed with *Interactive UI and CSS for an engaging user interface.
 - **State Management**: Utilizing Redux for efficient data handling across the app.
 - **Responsive Design**: Styled Components ensure a consistent look and feel across various devices.
 - **Robust Backend**: Built with Node.js, Express.js, and MongoDB for a scalable and performant backend.
@@ -32,7 +32,7 @@ Welcome to the CoWorkspace Space Buying App, an innovative solution designed for
 Detailed instructions on how to get the app up and running.
 
 ### Prerequisites
-List of prerequisites like Node.js, npm, etc.
+List of prerequisites like JavaScript, React. js, Express. js, Node.js, npm, etc.
 
 ### Installing and Running
 Provide step-by-step instructions to install and run the app locally.
