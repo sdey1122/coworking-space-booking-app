@@ -236,6 +236,16 @@ const ProductsList = () => {
       );
     }
 
+    if (sort === "dateAsc") {
+      updatedFilteredProducts.sort(
+        (a, b) => new Date(a.availabilityDate) - new Date(b.availabilityDate)
+      );
+    } else if (sort === "dateDesc") {
+      updatedFilteredProducts.sort(
+        (a, b) => new Date(b.availabilityDate) - new Date(a.availabilityDate)
+      );
+    }
+
     setFilteredProducts(updatedFilteredProducts);
   }, [location.search, categories, sort, productsData]);
 
@@ -268,9 +278,8 @@ const ProductsList = () => {
           <Sort>
             <SortText>Sort By:</SortText>
             <Select onChange={handleSortChange} value={sort}>
-              <option value="newest">NEWEST</option>
-              <option value="asc">PRICE (LOW TO HIGH)</option>
-              <option value="desc">PRICE (HIGH TO LOW)</option>
+              <option value="asc">DATE (OLDEST FIRST)</option>
+              <option value="desc">DATE (NEWEST FIRST)</option>
             </Select>
           </Sort>
         )}

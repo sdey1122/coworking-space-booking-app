@@ -9,11 +9,14 @@ import {
   getProductById,
 } from "../../actions/productsAction";
 import { useNavigate } from "react-router-dom";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const AddProduct = (props) => {
   const { productId, handleClose, formData: initialFormData } = props;
   const navigate = useNavigate();
 
+  const [availabilityDate, setAvailabilityDate] = useState(new Date());
   const [product, setProduct] = useState({
     name: "",
     price: "",
@@ -131,7 +134,7 @@ const AddProduct = (props) => {
   return (
     <div className="container my-5">
       {!productId && (
-        <Heading className="mb-4" type="h3" title="Add Products" />
+        <Heading className="mb-4" type="h3" title="Add workspace" />
       )}
 
       <form onSubmit={handleSubmit}>
@@ -143,7 +146,7 @@ const AddProduct = (props) => {
               value={product.name}
               handleChange={handleChange}
               name="name"
-              placeholder="Enter product name"
+              placeholder="Enter workspace name"
             />
             {product.formErrors.name && (
               <div className="form-text">{product.formErrors.name}</div>
@@ -159,7 +162,7 @@ const AddProduct = (props) => {
               value={product.price}
               handleChange={handleChange}
               name="price"
-              placeholder="Enter product price"
+              placeholder="Enter workspace price"
             />
             {product.formErrors.price && (
               <div className="form-text">{product.formErrors.price}</div>
@@ -175,7 +178,7 @@ const AddProduct = (props) => {
               value={product.description}
               handleChange={handleChange}
               name="description"
-              placeholder="Enter product description"
+              placeholder="Enter workspace description"
             />
             {product.formErrors.description && (
               <div className="form-text">{product.formErrors.description}</div>
@@ -191,12 +194,21 @@ const AddProduct = (props) => {
               value={product.categories}
               handleChange={handleChange}
               name="categories"
-              placeholder="Enter categories (comma-separated)"
+              placeholder="Enter Location and amenities(comma-separated)"
             />
             {product.formErrors.categories && (
               <div className="form-text">{product.formErrors.categories}</div>
             )}
           </div>
+        </div>
+
+        <div className="col-md-6">
+          <label>Availability Date</label>
+          <DatePicker
+            selected={availabilityDate}
+            onChange={(date) => setAvailabilityDate(date)}
+            className="form-control"
+          />
         </div>
 
         <div className="row mb-4">

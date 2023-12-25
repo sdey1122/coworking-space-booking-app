@@ -31,7 +31,7 @@ const MenuHeader = styled(Typography)`
   text-align: center;
   margin-top: 20px;
   margin-bottom: 20px;
-  background-image: linear-gradient(45deg, #007bff, #8811c5);
+  background-color: yellowgreen;
   color: white;
   padding: 10px;
 `;
@@ -40,13 +40,13 @@ const MenuFooter = styled("div")`
   position: absolute;
   bottom: 20px;
   width: 100%;
-  background: linear-gradient(45deg, #40e0d0, #ffd700);
+  background-color: azure;
 `;
 
 const SideDrawer = styled(Drawer)`
   .MuiDrawer-paper {
     width: 220px;
-    background: linear-gradient(45deg, #40e0d0, #ffd700);
+    background-color: bisque;
     border-radius: 10px;
     position: absolute;
     transform: translateY(-50%);
@@ -94,13 +94,6 @@ const FloatingDrawer = styled.div`
     font-size: 30px;
     transition: all 0.3s ease;
   }
-`;
-
-const ImageContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
 `;
 
 const StyledListItem = styled(ListItem)`
@@ -315,7 +308,7 @@ const SideDrawerLogic = () => {
         <CategoryList>
           <CategoryListItem onClick={handleAllProductsClick}>
             <StyledListItemText
-              primary="ALL PRODUCTS"
+              primary="ALL LOCATION & AMENITIES"
               style={{ padding: "5px" }}
             />
           </CategoryListItem>

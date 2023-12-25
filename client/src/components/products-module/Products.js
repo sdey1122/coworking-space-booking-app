@@ -43,7 +43,7 @@ const Products = () => {
 
   useEffect(() => {
     dispatch(startGetProducts());
-  }, [dispatch]); // Added dispatch to the dependency array
+  }, [dispatch]);
 
   const productsData = useSelector((state) => state.products.data);
 
@@ -52,8 +52,8 @@ const Products = () => {
       <Row>
         <div className="col-12 pt-5">
           <PromotionalText>
-            DISCOVER A WORLD OF CHOICES: EXPLORE OUR COLLECTION OF{" "}
-            {productsData.length} EXCLUSIVE ITEMS!
+            DISCOVER A WORLD OF CHOICES: EXPLORE OUR BEST {productsData.length}{" "}
+            EXCLUSIVE WORKSPACES
           </PromotionalText>
           <ProductsList />
         </div>
