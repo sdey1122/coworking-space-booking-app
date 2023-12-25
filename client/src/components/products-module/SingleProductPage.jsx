@@ -286,6 +286,7 @@ const SingleProductPage = (props) => {
             <Title>{product.name}</Title>
             <Desc>{product.description}</Desc>
             <Price>₹ {product.price}</Price>
+            <h2>Employee Count</h2>
             <AddContainer>
               <AmountContainer>
                 <IconButton onClick={() => handleQuantityChange("dec")}>
@@ -304,7 +305,7 @@ const SingleProductPage = (props) => {
               ADD TO CART
             </AddToCartButton>
             <ReviewContainer>
-              <ReviewTitle>PRODUCT REVIEWS</ReviewTitle>
+              <ReviewTitle>Workspace REVIEWS</ReviewTitle>
               <StyledTableContainer>
                 <StyledTable>
                   <TableHead>
@@ -344,7 +345,7 @@ const SingleProductPage = (props) => {
                     open={isReviewDialogOpen}
                     onClose={handleReviewDialogClose}
                   >
-                    <DialogTitle>PRODUCT REVIEW</DialogTitle>
+                    <DialogTitle>Workspace REVIEW</DialogTitle>
                     <DialogContent>
                       <StarContainer>
                         {[1, 2, 3, 4, 5].map((value) => (

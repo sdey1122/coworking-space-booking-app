@@ -65,12 +65,12 @@ const Cart = (props) => {
         </>
       ) : (
         <Text>
-          No Cart Items. Add Products to Cart.
+          No Cart Items. Add Your Favourite Workspaces to Cart.
           <StyledLink to="/products">
             <span role="img" aria-label="shopping-cart">
               🛒
             </span>
-            Explore Products
+            Explore Your Workspaces
           </StyledLink>
         </Text>
       )}

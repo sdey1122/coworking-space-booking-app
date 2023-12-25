@@ -124,7 +124,7 @@ const GlobalStyles = createGlobalStyle`
 const CategoryDrawer = styled(Drawer)`
   .MuiDrawer-paper {
     width: 220px;
-    background-image: linear-gradient(45deg, #ff5733, #ffdd67, #4caf50);
+    background-color: blueviolet;
     border-radius: 10px;
     position: absolute;
     margin-top: 0;

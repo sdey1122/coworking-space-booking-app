@@ -87,12 +87,12 @@ const CartTotal = () => {
         <SummaryItemPrice>₹ {totalPrice}</SummaryItemPrice>
       </SummaryItem>
       <SummaryItem>
-        <SummaryItemText>ESTIMATED SHIPPING</SummaryItemText>
-        <SummaryItemPrice>₹ 300</SummaryItemPrice>
+        <SummaryItemText>ESTIMATED HIDDEN CHARGE</SummaryItemText>
+        <SummaryItemPrice>₹ 30000</SummaryItemPrice>
       </SummaryItem>
       <SummaryItem>
-        <SummaryItemText>SHIPPING DISCOUNT</SummaryItemText>
-        <SummaryItemPrice>₹ -300</SummaryItemPrice>
+        <SummaryItemText>DISCOUNT</SummaryItemText>
+        <SummaryItemPrice>₹ -1000</SummaryItemPrice>
       </SummaryItem>
       <SummaryItem type="total">
         <SummaryItemText>TOTAL</SummaryItemText>

@@ -102,7 +102,7 @@ const CartList = () => {
     <>
       <Container>
         <Wrapper>
-          <Title>YOUR SHOPPING BAG - ({cartData.length})</Title>
+          <Title>YOUR WORKSPACES- ({cartData.length})</Title>
           {cartData.map((item) => (
             <CartItem key={item.productId}>
               <ProductInfo>
